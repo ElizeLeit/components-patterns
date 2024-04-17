@@ -3,25 +3,22 @@ import {
   TextLink,
   ButtonsAction,
   StyledCloseButton,
+  DescriptionContainer,
+  StyleAlertIcon,
 } from "./style";
 import Lexend from "../../atoms/Lexend";
-import IconError from "../../../assets/icons/error.svg";
-import IconInfo from "../../../assets/icons/info.svg";
-import IconSuccess from "../../../assets/icons/success.svg";
-import IconWarning from "../../../assets/icons/warning.svg";
-import IconClose from "../../../assets/icons/close.svg";
+import IconError from "../../../assets/icons/error-transparent.svg";
+import IconInfo from "../../../assets/icons/info-transparent.svg";
+import IconSuccess from "../../../assets/icons/success-transparent.svg";
+import IconWarning from "../../../assets/icons/warning-transparent.svg";
+import IconClose from "../../../assets/icons/close-transparent.svg";
 
-export default function Alert({
+export default function AlertFilled({
   title,
-  subtitle,
   type,
   status,
-  linkText,
-  linkRedirect,
   textMainButton,
-  textSecondaryButton,
   actionMainButton,
-  actionSecondaryButton,
   hasIconClose,
 }) {
   const getStatusIcon = (status) => {
@@ -56,28 +53,14 @@ export default function Alert({
 
   return (
     <AlertStyle statusColor={getStatusColor(status)}>
+      <DescriptionContainer>
+        <StyleAlertIcon src={getStatusIcon(status)} alt="Ícone de erro" />
+        <Lexend text={title} size="16px" weight={500} color="white" />
+      </DescriptionContainer>
+      <div>botao1</div>
       {hasIconClose && (
         <StyledCloseButton src={IconClose} alt="Ícone de fechar" />
       )}
-      <img src={getStatusIcon(status)} alt="Ícone de erro" />
-      <div>
-        <Lexend text={title} size="20px" weight={700} color="#061C3D" />
-        <TextLink>
-          <Lexend text={subtitle} size="16px" weight={400} color="#838E9E" />
-          {linkText && linkRedirect && (
-            <Lexend
-              text={linkText}
-              size="16px"
-              weight={600}
-              color={getStatusColor(status)}
-            />
-          )}
-        </TextLink>
-        <ButtonsAction>
-          <div>botao1</div>
-          <div>botao2</div>
-        </ButtonsAction>
-      </div>
     </AlertStyle>
   );
 }

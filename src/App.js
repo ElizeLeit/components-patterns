@@ -1,6 +1,7 @@
 import "./App.scss";
 import Lexend from "./components/atoms/Lexend";
 import Alert from "./components/molecules/Alert";
+import AlertFilled from "./components/molecules/AlertFilled";
 
 function App() {
   return (
@@ -13,7 +14,15 @@ function App() {
           subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
           status="error"
           type=""
-          filledBackground={false}
+          linkRedirect="www.google.com.br"
+          linkText="Alert link"
+          hasIconClose
+        />
+        <AlertFilled
+          title="This is a info alert"
+          subtitle="Lorem ipsum dolor sit amet, consectetur adipiscing elit."
+          status="error"
+          type=""
           linkRedirect="www.google.com.br"
           linkText="Alert link"
           hasIconClose
